@@ -1,4 +1,6 @@
 <script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
 import SectionTitle from '@/components/ui/SectionTitle.vue'
 </script>
 
@@ -50,7 +52,7 @@ import SectionTitle from '@/components/ui/SectionTitle.vue'
             <p class="font-sans text-xs text-brand-gray mt-1">Por medida</p>
           </div>
         </div>
-        <RouterLink to="/sobre" class="btn-outline">Conhecer a Empresa</RouterLink>
+        <button @click="router.push('/sobre')" class="btn-outline">Conhecer a Empresa</button>
       </div>
     </div>
   </section>

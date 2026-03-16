@@ -1,45 +1,26 @@
 <script setup>
+import { useRouter } from 'vue-router'
+import LogoSaw from '@/components/ui/LogoSaw.vue'
 import company from '@/data/companyData'
+const router = useRouter()
 </script>
 
 <template>
   <section class="relative py-24 md:py-32 bg-brand-charcoal overflow-hidden">
-    <!-- Orange top border -->
     <div class="absolute top-0 left-0 right-0 h-1 bg-brand-orange" />
-    <!-- Subtle glow -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none" />
-    <!-- Saw blade watermark -->
-    <div class="absolute right-16 top-1/2 -translate-y-1/2 opacity-5 hidden lg:block">
-      <svg width="280" height="280" viewBox="0 0 80 80" fill="none">
-        <circle cx="40" cy="40" r="30" stroke="white" stroke-width="2.5" fill="none"/>
-        <circle cx="40" cy="40" r="18" stroke="white" stroke-width="2" fill="none"/>
-        <g stroke="white" stroke-width="1.5">
-          <line x1="40" y1="22" x2="40" y2="11"/>
-          <line x1="40" y1="58" x2="40" y2="69"/>
-          <line x1="22" y1="40" x2="11" y2="40"/>
-          <line x1="58" y1="40" x2="69" y2="40"/>
-          <line x1="52.7" y1="27.3" x2="60.1" y2="19.9"/>
-          <line x1="27.3" y1="52.7" x2="19.9" y2="60.1"/>
-          <line x1="52.7" y1="52.7" x2="60.1" y2="60.1"/>
-          <line x1="27.3" y1="27.3" x2="19.9" y2="19.9"/>
-        </g>
-        <g fill="white">
-          <polygon points="40,8 37,2 43,2"/>
-          <polygon points="40,72 37,78 43,78"/>
-          <polygon points="72,40 78,37 78,43"/>
-          <polygon points="8,40 2,43 2,37"/>
-        </g>
-        <circle cx="40" cy="40" r="5" fill="white"/>
-      </svg>
+
+    <!-- Serra em marca de água animada -->
+    <div class="absolute right-16 top-1/2 -translate-y-1/2 opacity-5 hidden lg:block pointer-events-none">
+      <LogoSaw :light="true" :size="260" :spinning="true" />
     </div>
 
     <div class="relative container-site text-center max-w-3xl mx-auto">
       <div class="flex items-center justify-center gap-3 mb-4">
         <div class="w-8 h-0.5 bg-brand-orange" />
-        <p class="font-sans text-xs font-semibold tracking-brand uppercase text-brand-orange">Pronto para começar?</p>
+        <p class="font-sans text-xs font-semibold uppercase text-brand-orange" style="letter-spacing:0.15em">Pronto para começar?</p>
         <div class="w-8 h-0.5 bg-brand-orange" />
       </div>
-
       <h2 class="font-heading text-4xl md:text-5xl text-white leading-tight mb-6">
         O seu projeto começa com uma conversa
       </h2>
@@ -48,7 +29,7 @@ import company from '@/data/companyData'
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-        <RouterLink to="/contactos" class="btn-primary">Pedir Orçamento Grátis</RouterLink>
+        <button @click="router.push('/contactos')" class="btn-primary">Pedir Orçamento Grátis</button>
         <a :href="`https://wa.me/${company.contact.whatsapp}`" target="_blank" rel="noopener noreferrer"
           class="btn-outline-light inline-flex items-center gap-2">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -58,24 +39,17 @@ import company from '@/data/companyData'
         </a>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-8 pt-10 border-t border-white/10">
+      <div class="flex flex-wrap justify-center gap-8 pt-10" style="border-top:1px solid rgba(255,255,255,0.1)">
         <div class="flex items-center gap-2">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="text-brand-orange">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
+          <svg width="15" height="15" fill="none" stroke="#8C5331" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span class="font-sans text-xs text-white/35">Orçamento sem compromisso</span>
         </div>
         <div class="flex items-center gap-2">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="text-brand-orange">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
-          </svg>
+          <svg width="15" height="15" fill="none" stroke="#8C5331" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
           <span class="font-sans text-xs text-white/35">Ponte de Lima e região</span>
         </div>
         <div class="flex items-center gap-2">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="text-brand-orange">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
+          <svg width="15" height="15" fill="none" stroke="#8C5331" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span class="font-sans text-xs text-white/35">Resposta rápida</span>
         </div>
       </div>

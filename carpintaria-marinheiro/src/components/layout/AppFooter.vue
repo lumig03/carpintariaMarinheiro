@@ -1,6 +1,9 @@
 <script setup>
+import { useRouter } from 'vue-router'
+import LogoSaw from '@/components/ui/LogoSaw.vue'
 import company from '@/data/companyData'
-const year = new Date().getFullYear()
+const router = useRouter()
+const year   = new Date().getFullYear()
 const navLinks = [
   { label: 'Início', to: '/' },
   { label: 'Sobre Nós', to: '/sobre' },
@@ -12,44 +15,18 @@ const navLinks = [
 
 <template>
   <footer class="bg-brand-dark text-white">
-    <!-- Orange top accent -->
     <div class="h-1 bg-brand-orange" />
-
     <div class="container-site py-16 md:py-20 grid md:grid-cols-3 gap-12 md:gap-8">
 
-      <!-- Brand column -->
+      <!-- Brand -->
       <div>
-        <RouterLink to="/" class="flex items-center gap-3 mb-6 group">
-          <svg width="40" height="40" viewBox="0 0 80 80" fill="none" class="flex-shrink-0">
-            <circle cx="40" cy="40" r="30" stroke="white" stroke-width="2.5" fill="none"/>
-            <circle cx="40" cy="40" r="18" stroke="white" stroke-width="2" fill="none"/>
-            <g stroke="white" stroke-width="1.5">
-              <line x1="40" y1="22" x2="40" y2="11"/>
-              <line x1="40" y1="58" x2="40" y2="69"/>
-              <line x1="22" y1="40" x2="11" y2="40"/>
-              <line x1="58" y1="40" x2="69" y2="40"/>
-              <line x1="52.7" y1="27.3" x2="60.1" y2="19.9"/>
-              <line x1="27.3" y1="52.7" x2="19.9" y2="60.1"/>
-              <line x1="52.7" y1="52.7" x2="60.1" y2="60.1"/>
-              <line x1="27.3" y1="27.3" x2="19.9" y2="19.9"/>
-            </g>
-            <g fill="white">
-              <polygon points="40,8 37,2 43,2"/>
-              <polygon points="40,72 37,78 43,78"/>
-              <polygon points="72,40 78,37 78,43"/>
-              <polygon points="8,40 2,43 2,37"/>
-            </g>
-            <polygon points="6,36 0,40 6,44" fill="#C4521A"/>
-            <polygon points="74,36 80,40 74,44" fill="#C4521A"/>
-            <circle cx="40" cy="40" r="5" fill="white"/>
-            <circle cx="40" cy="40" r="3" fill="#1A1A1A"/>
-          </svg>
+        <button @click="router.push('/')" class="flex items-center gap-3 mb-6" style="background:none;border:none;cursor:pointer;padding:0">
+          <LogoSaw :light="true" :size="36" :spinning="false" />
           <div class="flex flex-col leading-tight">
-            <span class="font-sans font-semibold text-xs tracking-[0.2em] uppercase text-white/70">CARPINTARIA</span>
-            <span class="font-heading font-bold text-xl text-brand-orange">MARINHEIRO</span>
+            <span class="font-sans font-semibold text-xs text-white/70" style="letter-spacing:0.2em">CARPINTARIA</span>
+            <span class="font-heading font-bold text-xl" style="color:#8C5331">MARINHEIRO</span>
           </div>
-        </RouterLink>
-
+        </button>
         <p class="font-sans text-sm text-white/40 leading-relaxed mb-6 max-w-xs">
           Mobiliário por medida com design, rigor e acabamento profissional. Ponte de Lima.
         </p>
@@ -64,36 +41,34 @@ const navLinks = [
 
       <!-- Navigation -->
       <div>
-        <p class="font-sans text-xs tracking-brand uppercase text-white/25 mb-6">Navegação</p>
+        <p class="font-sans text-xs uppercase text-white/25 mb-6" style="letter-spacing:0.15em">Navegação</p>
         <nav class="flex flex-col gap-3">
-          <RouterLink v-for="link in navLinks" :key="link.to" :to="link.to"
-            class="font-sans text-sm text-white/45 hover:text-brand-orange transition-colors">
+          <button v-for="link in navLinks"
+            :key="link.to"
+            @click="router.push(link.to)"
+            class="font-sans text-sm text-white/45 hover:text-brand-orange transition-colors text-left"
+            style="background:none;border:none;cursor:pointer;padding:0"
+          >
             {{ link.label }}
-          </RouterLink>
+          </button>
         </nav>
       </div>
 
       <!-- Contact -->
       <div>
-        <p class="font-sans text-xs tracking-brand uppercase text-white/25 mb-6">Contacto</p>
+        <p class="font-sans text-xs uppercase text-white/25 mb-6" style="letter-spacing:0.15em">Contacto</p>
         <address class="not-italic space-y-3">
           <p class="font-sans text-sm text-white/45 leading-relaxed">
             {{ company.address.street }}<br>
             {{ company.address.locality }}<br>
             {{ company.address.city }} {{ company.address.postalCode }}
           </p>
-          <a :href="`tel:${company.contact.phone}`"
-            class="block font-sans text-sm text-white/45 hover:text-brand-orange transition-colors">
-            {{ company.contact.phoneDisplay }}
-          </a>
-          <a :href="`mailto:${company.contact.email}`"
-            class="block font-sans text-sm text-white/45 hover:text-brand-orange transition-colors break-all">
-            {{ company.contact.email }}
-          </a>
+          <a :href="`tel:${company.contact.phone}`" class="block font-sans text-sm text-white/45 hover:text-brand-orange transition-colors">{{ company.contact.phoneDisplay }}</a>
+          <a :href="`mailto:${company.contact.email}`" class="block font-sans text-sm text-white/45 hover:text-brand-orange transition-colors break-all">{{ company.contact.email }}</a>
         </address>
         <div class="mt-6">
-          <p class="font-sans text-xs tracking-brand uppercase text-white/25 mb-3">Horário</p>
-          <div v-for="h in company.hours" :key="h.days" class="flex justify-between font-sans text-xs py-1.5 border-b border-white/5 last:border-0">
+          <p class="font-sans text-xs uppercase text-white/25 mb-3" style="letter-spacing:0.15em">Horário</p>
+          <div v-for="h in company.hours" :key="h.days" class="flex justify-between font-sans text-xs py-1.5" style="border-bottom:1px solid rgba(255,255,255,0.05)">
             <span class="text-white/35">{{ h.days }}</span>
             <span :class="h.hours === 'Encerrado' ? 'text-white/20' : 'text-white/55'">{{ h.hours }}</span>
           </div>
@@ -101,7 +76,7 @@ const navLinks = [
       </div>
     </div>
 
-    <div class="border-t border-white/8">
+    <div style="border-top:1px solid rgba(255,255,255,0.08)">
       <div class="container-site py-5 flex flex-col md:flex-row justify-between gap-2 font-sans text-xs text-white/20">
         <p>© {{ year }} Carpintaria Marinheiro. Todos os direitos reservados.</p>
         <p>Ponte de Lima, Portugal</p>

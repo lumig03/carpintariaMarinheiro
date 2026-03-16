@@ -80,9 +80,9 @@ const serviceImages = {
                   Montagem e instalação incluída
                 </li>
               </ul>
-              <RouterLink to="/contactos" class="btn-primary">
+              <button @click="$router.push('/contactos')" class="btn-primary">
                 Pedir Orçamento
-              </RouterLink>
+              </button>
             </div>
           </div>
         </div>

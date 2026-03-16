@@ -43,8 +43,7 @@ function navigate(dir) {
   <div>
     <!-- Category filter -->
     <div class="flex flex-wrap gap-2 md:gap-3 mb-10">
-      <button
-        v-for="cat in portfolioCategories"
+      <button v-for="cat in portfolioCategories"
         :key="cat"
         @click="activeCategory = cat"
         :class="[
@@ -116,16 +115,14 @@ function navigate(dir) {
               class="w-full h-full object-cover max-h-[70vh] md:max-h-[85vh]"
             />
             <!-- Prev/Next -->
-            <button
-              @click="navigate(-1)"
+            <button @click="navigate(-1)"
               class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-brand-dark/60 flex items-center justify-center text-white hover:bg-brand-dark transition-colors"
             >
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
               </svg>
             </button>
-            <button
-              @click="navigate(1)"
+            <button @click="navigate(1)"
               class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-brand-dark/60 flex items-center justify-center text-white hover:bg-brand-dark transition-colors"
             >
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -155,13 +152,11 @@ function navigate(dir) {
               >
                 Ver no Instagram
               </a>
-              <RouterLink
-                to="/contactos"
-                class="btn-primary text-xs text-center"
+              <button @click="$router.push('/contactos')" class="btn-primary text-xs text-center"
                 @click="lightboxOpen = false"
               >
                 Pedir Orçamento Similar
-              </RouterLink>
+              </button>
             </div>
           </div>
         </div>

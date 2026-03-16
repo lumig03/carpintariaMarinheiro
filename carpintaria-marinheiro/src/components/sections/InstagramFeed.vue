@@ -97,9 +97,9 @@ function openLightbox(post) {
           </svg>
           Ver mais no Instagram
         </a>
-        <RouterLink to="/projetos" class="btn-primary">
+        <button @click="$router.push('/projetos')" class="btn-primary">
           Ver todos os projetos
-        </RouterLink>
+        </button>
       </div>
     </div>
 
@@ -135,13 +135,11 @@ function openLightbox(post) {
             >
               Ver no Instagram
             </a>
-            <RouterLink
-              to="/contactos"
-              class="btn-primary text-xs w-full text-center"
+            <button @click="$router.push('/contactos')" class="btn-primary text-xs w-full text-center"
               @click="lightboxOpen = false"
             >
               Pedir Orçamento Similar
-            </RouterLink>
+            </button>
           </div>
         </div>
       </div>

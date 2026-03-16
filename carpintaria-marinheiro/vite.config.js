@@ -16,5 +16,7 @@ export default defineConfig({
         changeOrigin: true
       }
     }
-  }
+  },
+  // For Vite 4, SPA fallback is handled automatically by the dev server
+  // The issue is more likely in how RouterLink is being used
 })
