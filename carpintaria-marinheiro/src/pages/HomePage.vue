@@ -42,7 +42,7 @@ const testimonials = [
 
     <AboutPreview />
     <ServicesGrid :preview="true" />
-    <InstagramFeed :limit="6" />
+    <!-- <InstagramFeed :limit="6" /> -->
 
     <!-- Testimonials -->
     <section class="py-24 md:py-32 bg-brand-beige/30">
