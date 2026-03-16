@@ -1,0 +1,98 @@
+// Fallback portfolio data usado quando a API do Instagram não está disponível.
+// Substituir media_url por imagens reais dos projetos.
+
+export const portfolioFallback = [
+  {
+    id: 'p1',
+    caption: 'Cozinha por medida em acabamento mate com ilha central. Projeto em Ponte de Lima. #carpintariamarinheiro #cozinhadesign',
+    media_type: 'IMAGE',
+    media_url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
+    thumbnail_url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=70',
+    permalink: 'https://www.instagram.com/carpintariamarinheiro',
+    timestamp: '2024-11-01T10:00:00Z',
+    category: 'Cozinhas',
+  },
+  {
+    id: 'p2',
+    caption: 'Roupeiro embutido com iluminação LED integrada. Quarto principal com armários do chão ao tecto. #roupeiro #closet',
+    media_type: 'IMAGE',
+    media_url: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80',
+    thumbnail_url: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=400&q=70',
+    permalink: 'https://www.instagram.com/carpintariamarinheiro',
+    timestamp: '2024-10-20T10:00:00Z',
+    category: 'Roupeiros',
+  },
+  {
+    id: 'p3',
+    caption: 'Móvel de casa de banho em madeira com lavatório de encastrar. Minimalismo e funcionalidade. #casadebanho',
+    media_type: 'IMAGE',
+    media_url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80',
+    thumbnail_url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&q=70',
+    permalink: 'https://www.instagram.com/carpintariamarinheiro',
+    timestamp: '2024-10-10T10:00:00Z',
+    category: 'Casas de Banho',
+  },
+  {
+    id: 'p4',
+    caption: 'Painel ripado com iluminação LED para sala de estar. Estética contemporânea e sofisticada. #painelripado',
+    media_type: 'IMAGE',
+    media_url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
+    thumbnail_url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=70',
+    permalink: 'https://www.instagram.com/carpintariamarinheiro',
+    timestamp: '2024-09-25T10:00:00Z',
+    category: 'Móveis TV',
+  },
+  {
+    id: 'p5',
+    caption: 'Cozinha aberta com peninsula e tampo em pedra. Projeto completo do design à montagem. #cozinhamoderna',
+    media_type: 'IMAGE',
+    media_url: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&q=80',
+    thumbnail_url: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=400&q=70',
+    permalink: 'https://www.instagram.com/carpintariamarinheiro',
+    timestamp: '2024-09-15T10:00:00Z',
+    category: 'Cozinhas',
+  },
+  {
+    id: 'p6',
+    caption: 'Quarto completo com mobiliário por medida. Cama, roupeiro e mesas de cabeceira em acabamento cinza. #quarto',
+    media_type: 'IMAGE',
+    media_url: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80',
+    thumbnail_url: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=400&q=70',
+    permalink: 'https://www.instagram.com/carpintariamarinheiro',
+    timestamp: '2024-09-01T10:00:00Z',
+    category: 'Quartos',
+  },
+  {
+    id: 'p7',
+    caption: 'Armários embutidos no corredor, aproveitamento total do espaço. Organização inteligente. #armarios',
+    media_type: 'IMAGE',
+    media_url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    thumbnail_url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=70',
+    permalink: 'https://www.instagram.com/carpintariamarinheiro',
+    timestamp: '2024-08-20T10:00:00Z',
+    category: 'Armários',
+  },
+  {
+    id: 'p8',
+    caption: 'Móvel TV suspenso com prateleiras e sistema de iluminação LED embutido. Sala de estar moderna. #moveltv',
+    media_type: 'IMAGE',
+    media_url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
+    thumbnail_url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=70',
+    permalink: 'https://www.instagram.com/carpintariamarinheiro',
+    timestamp: '2024-08-05T10:00:00Z',
+    category: 'Móveis TV',
+  },
+]
+
+export const portfolioCategories = [
+  'Todos',
+  'Cozinhas',
+  'Roupeiros',
+  'Casas de Banho',
+  'Quartos',
+  'Móveis TV',
+  'Armários',
+  'Outros',
+]
+
+export default portfolioFallback

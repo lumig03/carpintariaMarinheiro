@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --orange:        #C4521A;
+    --orange-dark:   #A03F10;
+    --orange-light:  #D9703A;
+    --charcoal:      #2D2D2D;
+    --dark:          #1A1A1A;
+    --offwhite:      #F5F3EF;
+    --beige:         #EAE6DF;
+    --sand:          #D5CFC5;
+    --gray:          #6B6B6B;
+  }
+
+  html { @apply scroll-smooth; }
+
+  body {
+    @apply bg-brand-offwhite text-brand-charcoal font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading;
+    line-height: 1.15;
+  }
+
+  ::selection {
+    background-color: var(--orange);
+    color: white;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--offwhite); }
+  ::-webkit-scrollbar-thumb { background: var(--sand); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-brand-orange text-white
+           px-8 py-4 font-sans font-medium text-xs tracking-brand uppercase
+           transition-all duration-400
+           hover:bg-brand-orange-dark;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2
+           bg-brand-charcoal text-white
+           px-8 py-4 font-sans font-medium text-xs tracking-brand uppercase
+           transition-all duration-400
+           hover:bg-brand-dark;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           border border-brand-charcoal text-brand-charcoal
+           px-8 py-4 font-sans font-medium text-xs tracking-brand uppercase
+           transition-all duration-400
+           hover:bg-brand-charcoal hover:text-white;
+  }
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2
+           border border-white/60 text-white
+           px-8 py-4 font-sans font-medium text-xs tracking-brand uppercase
+           transition-all duration-400
+           hover:bg-white hover:text-brand-charcoal;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2
+           font-sans text-xs font-medium text-brand-orange tracking-brand uppercase
+           transition-colors duration-300 hover:text-brand-orange-dark;
+  }
+
+  /* ── Layout ── */
+  .container-site { @apply max-w-8xl mx-auto px-6 md:px-10 lg:px-16; }
+
+  /* ── Typography ── */
+  .section-label {
+    @apply font-sans text-xs font-semibold tracking-brand uppercase
+           text-brand-orange mb-3 flex items-center gap-3;
+  }
+  .section-title       { @apply font-heading text-3xl md:text-4xl lg:text-5xl text-brand-charcoal leading-tight; }
+  .section-title-light { @apply font-heading text-3xl md:text-4xl lg:text-5xl text-white leading-tight; }
+  .section-sub         { @apply font-sans text-base text-brand-gray leading-relaxed max-w-2xl; }
+
+  /* ── Form ── */
+  .form-label {
+    @apply block font-sans text-xs font-medium tracking-brand uppercase
+           text-brand-charcoal/50 mb-2;
+  }
+  .input-field {
+    @apply w-full bg-transparent border-b border-brand-charcoal/20
+           py-3 font-sans text-sm text-brand-charcoal placeholder:text-brand-charcoal/30
+           focus:outline-none focus:border-brand-orange transition-colors duration-300;
+  }
+  .input-field.error { @apply border-red-500; }
+
+  /* ── Decorative ── */
+  .orange-rule { @apply w-10 h-0.5 bg-brand-orange inline-block; }
+
+  /* ── Card ── */
+  .card-lift { @apply transition-all duration-400 hover:-translate-y-1 hover:shadow-xl; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .aspect-portrait { aspect-ratio: 3 / 4; }
+}
+
+/* Page transitions */
+.page-enter-active, .page-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.page-enter-from { opacity: 0; transform: translateY(10px); }
+.page-leave-to   { opacity: 0; transform: translateY(-6px); }
+
+/* Skeleton */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #EAE6DF 25%, #D5CFC5 50%, #EAE6DF 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.lightbox-overlay {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
